@@ -10,7 +10,7 @@ module ConsulCookbook
   module Resource
     # @since 1.0.0
     class ConsulDefinition < Chef::Resource
-      include Poise(fused: true)
+      include Poise(fused: true, parent: :consul_service)
       include ConsulCookbook::Helpers
       provides(:consul_definition)
       default_action(:create)
@@ -59,6 +59,7 @@ module ConsulCookbook
               group new_resource.group
               mode '0640'
             end
+            notifies :reload, new_resource.parent, :immediately if new_resource.parent
           end
         end
       end
