@@ -13,7 +13,7 @@ module ConsulCookbook
     # A resource for managing the Consul service.
     # @since 1.0.0
     class ConsulService < Chef::Resource
-      include Poise
+      include Poise(container: true)
       provides(:consul_service)
       include PoiseService::ServiceMixin
       include ConsulCookbook::Helpers
