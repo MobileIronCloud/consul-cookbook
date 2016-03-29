@@ -85,6 +85,7 @@ module ConsulCookbook
       attribute(:statsd_addr, kind_of: String)
       attribute(:statsite_addr, kind_of: String)
       attribute(:syslog_facility, kind_of: String)
+      attribute(:telemetry, kind_of:  [Hash, Mash])
       attribute(:ui, equal_to: [true, false], default: false)
       attribute(:ui_dir, kind_of: String)
       attribute(:verify_incoming, equal_to: [true, false], default: false)
