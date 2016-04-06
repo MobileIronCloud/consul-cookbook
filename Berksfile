@@ -1,12 +1,10 @@
 source 'https://supermarket.chef.io'
-cookbook 'chef-vault', git: 'https://github.com/chef-cookbooks/chef-vault'
 metadata
 
-group :test do
-  cookbook 'consul_spec', path: 'test/cookbooks/consul_spec'
-end
-
-group :integration do
+group :test, :integration do
   cookbook 'consul_spec', path: 'test/cookbooks/consul_spec'
   cookbook 'apt'
+  cookbook 'freebsd'
+  cookbook 'windows'
+  cookbook 'yum'
 end
